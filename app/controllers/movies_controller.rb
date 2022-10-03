@@ -11,9 +11,9 @@ class MoviesController < ApplicationController
       @ratings_to_show = {} || params[:ratings]
       if @ratings_to_show == {}
         @ratings_to_show = @all_ratings
-        @movies = Movie.with_ratings(rated)
+        @movies = Movie.with_ratings(@ratings_to_show)
       else
-        @movies = Movie.with_ratings(rated)
+        @movies = Movie.with_ratings(@ratings_to_show.keys)
       end
     end
   
