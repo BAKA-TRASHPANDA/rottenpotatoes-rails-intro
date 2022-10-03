@@ -12,9 +12,9 @@ class MoviesController < ApplicationController
 
       if @ratings_to_show == {}
         @ratings_to_show = @all_ratings
-        @movies = Movie.where(rating: @ratings_to_show)
+        @movies = Movie.with_ratings(@ratings_to_show)
       else
-        @movies = Movie.where(rating: @ratings_to_show.keys)
+        @movies = Movie.with_ratings(@ratings_to_show.keys)
       end
     end
   
