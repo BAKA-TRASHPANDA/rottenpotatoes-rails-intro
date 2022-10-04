@@ -17,6 +17,7 @@ class MoviesController < ApplicationController
       if params[:sort]
         session[:sort] = params[:sort]
       end
+      
       if params[:ratings]
         session[:ratings] = params[:ratings]
       end
