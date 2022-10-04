@@ -12,8 +12,15 @@ class MoviesController < ApplicationController
         ordering = {:order => :title}
       end
       @all_ratings = Movie.all_ratings
-      @ratings_to_show = params[:ratings]||{} 
+      @ratings_to_show = params[:ratings]|| session[:ratings]||{} 
       
+      if params[:sort]
+        session[:sort] = params[:sort]
+      end
+      if params[:ratings]
+        session[:ratings] = params[:ratings]
+      end
+
       if @ratings_to_show == {}
         @ratings_to_show = @all_ratings
         @movies = Movie.with_ratings(@ratings_to_show).order(sort)
