@@ -19,7 +19,9 @@
 <table class="table table-striped col-md-12" id="movies">
   <thead>
     <tr>
-      <th> <a href="title_header", id: 'title_header'>Movie Title</a></th>
+      <th> 
+      <%= link_to 'Movie title', movies_path(),:class => 'hilite' %>
+      </th>
      
       <th>Rating</th>
       <th>Release Date</th>
