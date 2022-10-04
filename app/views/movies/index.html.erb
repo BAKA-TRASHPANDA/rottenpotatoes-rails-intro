@@ -19,13 +19,13 @@
 <table class="table table-striped col-md-12" id="movies">
   <thead>
     <tr>
-      <th, class = 'hilite p-3 mb-2 bg-warning text-dark'> 
-      <%= link_to 'Movie Title', movies_path(:sort => "title"), id: "title_header" %>
+      <th> 
+      <%= link_to 'Movie Title', movies_path(:sort => "title"), id: "title_header" , class: "hilite p-3 mb-2 bg-warning text-dark" %>
       </th>
      
       <th>Rating</th>
-      <th , class = class="<%= class_names(hilite p-3 mb-2 bg-warning text-dark: params[:sort] == "release_date") %>">
-      <%= link_to 'Release Date', movies_path(:sort => "release_date"),  id: "realease_date_header" %>
+      <th >
+      <%= link_to 'Release Date', movies_path(:sort => "release_date"),  id: "realease_date_header", class: "hilite p-3 mb-2 bg-warning text-dark" %>
       </th>
       <th>More Info</th>
     </tr>
