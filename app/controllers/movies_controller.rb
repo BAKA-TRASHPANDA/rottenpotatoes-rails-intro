@@ -7,14 +7,18 @@ class MoviesController < ApplicationController
     end
   
     def index
+      sort = params[:sort] || session[:sort]
+      if sort == 'title'
+        ordering = {:order => :title}
+      end
       @all_ratings = Movie.all_ratings
       @ratings_to_show = params[:ratings]||{} 
-
+      
       if @ratings_to_show == {}
         @ratings_to_show = @all_ratings
-        @movies = Movie.with_ratings(@ratings_to_show)
+        @movies = Movie.with_ratings(@ratings_to_show).order(sort)
       else
-        @movies = Movie.with_ratings(@ratings_to_show.keys)
+        @movies = Movie.with_ratings(@ratings_to_show.keys).order(sort)
       end
     end
   
